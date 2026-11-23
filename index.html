@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>صنعت‌نگار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6fa;--panel:#fff;--ink:#142238;--muted:#6b7a90;--line:#e3e9f0;--nav:#0b1324;--brand:#0b8b83;--brand2:#0d706b;--brand-soft:#e3f5f2;--danger:#bd4b55;--danger-soft:#fff0f0;--warning:#a66a19;--warning-soft:#fff6e8;--success:#18764b;--success-soft:#eaf7ef;--shadow:0 12px 34px rgba(20,34,56,.07);--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;font-size:14px;line-height:1.75}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}.app{min-height:100vh;display:flex}
+.sidebar{width:264px;background:linear-gradient(180deg,var(--nav),#101b31);color:#dce7f5;position:fixed;inset:0 0 0 auto;padding:22px 15px;display:flex;flex-direction:column;overflow-y:auto;z-index:30}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 9px 22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.brand-mark{width:43px;height:43px;border-radius:14px;background:linear-gradient(145deg,#21b3a6,#08736e);display:grid;place-items:center;color:white;font-size:22px;font-weight:bold}
+.brand-name{font-weight:800;font-size:19px}.brand-sub{color:#8fa4c0;font-size:10px;margin-top:-3px}
+.nav-label{font-size:10px;color:#7186a3;padding:17px 12px 7px;letter-spacing:.8px}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav button{background:transparent;border:0;color:#aabbd0;text-align:right;padding:10px 12px;border-radius:11px;display:flex;align-items:center;gap:11px;transition:.18s;width:100%}
+.nav button:hover{background:rgba(255,255,255,.07);color:white}
+.nav button.active{background:linear-gradient(90deg,rgba(28,178,164,.18),rgba(28,178,164,.06));color:#7de0d4;border-right:3px solid #2fc3b4;padding-right:9px}
+.nav-ico{width:22px;text-align:center;font-size:16px}
+.main{margin-right:264px;width:calc(100% - 264px);min-width:0}
+.topbar{height:76px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:15px}
+.crumb{font-size:11px;color:var(--muted)}.top-title{font-size:17px;font-weight:800}
+.top-actions{display:flex;align-items:center;gap:10px}
+.content{padding:27px 30px 48px;max-width:1600px;margin:auto}
+.view{display:none}.view.active{display:block}
+.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin:3px 0 22px;flex-wrap:wrap}
+.page-head h1{font-size:22px;margin:0 0 4px;font-weight:900}
+.page-head p{margin:0;color:var(--muted);font-size:12px}
+.eyebrow{font-size:10px;color:var(--brand);font-weight:bold;letter-spacing:.5px;margin-bottom:5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 4px 18px rgba(20,34,56,.025)}
+.card-pad{padding:20px}
+.grid{display:grid;gap:15px}
+.kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0}
+.kpi{padding:19px}
+.kpi-label{color:var(--muted);font-size:11px}
+.kpi-value{font-size:28px;font-weight:900;line-height:1.4;margin-top:7px}
+.kpi-note{font-size:10px;color:#8b98aa}
+.hero{background:linear-gradient(115deg,#0d283b,#0c6965);border-radius:22px;color:white;padding:25px 27px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.hero h1{font-size:22px;margin:0 0 7px}.hero p{margin:0;color:#cae4e4;font-size:12px;max-width:670px}
+.btn{border:1px solid transparent;border-radius:11px;padding:9px 14px;font-weight:700;font-size:12px;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.16s;white-space:nowrap;font-family:inherit}
+.btn-primary{background:var(--brand);color:white}.btn-primary:hover{background:var(--brand2)}
+.btn-soft{background:var(--brand-soft);color:var(--brand2);border-color:#d1ebe7}
+.btn-ghost{background:#fff;color:#53647a;border-color:var(--line)}.btn-ghost:hover{background:#f6f8fb}
+.btn-danger{background:var(--danger-soft);color:var(--danger);border-color:#f6d7d9}
+.btn-warning{background:var(--warning-soft);color:var(--warning);border-color:#f1dfc2}
+.btn-sm{padding:6px 9px;font-size:11px;border-radius:9px}
+.btn-block{width:100%}
+.hero .btn-light{background:white;color:#0d5f5b}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:21px 0 12px;flex-wrap:wrap}
+.section-head h2{font-size:15px;margin:0;font-weight:800}
+.section-head p{font-size:11px;color:var(--muted);margin:3px 0 0}
+.muted{color:var(--muted)}.small{font-size:11px}.tiny{font-size:10px}
+.table-wrap{overflow:auto}
+.table{width:100%;border-collapse:collapse;min-width:650px}
+.table th{font-size:10px;color:#8190a2;font-weight:700;background:#f8fafc;text-align:right;padding:12px 13px;border-bottom:1px solid var(--line)}
+.table td{font-size:12px;text-align:right;padding:12px 13px;border-bottom:1px solid var(--line)}
+.table tr:last-child td{border-bottom:0}
+.table tbody tr:hover{background:#fbfcfe}
+.status{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 8px;font-size:10px;font-weight:bold;white-space:nowrap}
+.status.ok{background:var(--success-soft);color:var(--success)}
+.status.pending{background:var(--warning-soft);color:var(--warning)}
+.status.bad{background:var(--danger-soft);color:var(--danger)}
+.status.info{background:#edf3fb;color:#426389}
+.empty{padding:35px 20px;text-align:center;color:var(--muted)}
+.empty-icon{width:52px;height:52px;margin:0 auto 10px;border-radius:17px;display:grid;place-items:center;background:#edf3f7;color:var(--brand);font-size:22px}
+.empty b{display:block;color:var(--ink);font-size:13px;margin-bottom:5px}
+.empty p{font-size:11px;margin:0 0 13px}
+.split{display:grid;grid-template-columns:1.3fr .7fr;gap:15px}
+.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-size:11px;font-weight:700;color:#596b81}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:#fbfcfe;padding:10px 11px;color:var(--ink);min-width:0;font:inherit;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#63b7b0;box-shadow:0 0 0 3px rgba(11,139,131,.09)}
+.field textarea{resize:vertical;min-height:105px;line-height:1.9}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.form-grid .full{grid-column:1/-1}
+.form-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap;margin-top:18px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.toolbar input,.toolbar select{border:1px solid var(--line);background:white;border-radius:10px;padding:8px 11px;font-size:11px;font:inherit;outline:none}
+.toolbar .searchbox{min-width:220px}
+.dropzone{border:1.5px dashed #b9c8d8;border-radius:15px;background:#f9fbfd;padding:26px;text-align:center;cursor:pointer;transition:.2s}
+.dropzone:hover,.dropzone.drag{border-color:var(--brand);background:#f1faf8}
+.dropzone .big{font-size:27px;color:var(--brand)}
+.dropzone b{display:block;font-size:12px;margin:4px 0}
+.dropzone span{font-size:10px;color:var(--muted)}
+.filelist{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.file-chip{background:#f5f8fb;border:1px solid var(--line);padding:7px 10px;border-radius:9px;display:flex;justify-content:space-between;gap:8px;font-size:10px}
+.fact-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;margin-bottom:9px}
+.fact-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.fact-fields{display:grid;grid-template-columns:1.2fr 1fr .55fr;gap:8px;margin:10px 0}
+.fact-fields input{width:100%;padding:7px 8px;background:#fbfcfe;border:1px solid var(--line);border-radius:8px;font-size:11px;font:inherit}
+.evidence{background:#f7f9fc;border-right:3px solid #9bbcb7;border-radius:7px;padding:10px 12px;margin-top:9px;font-size:11px;color:#596b81;white-space:pre-wrap;word-break:break-word;max-height:200px;overflow:auto}
+.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.content-output{width:100%;min-height:260px;border:1px solid var(--line);border-radius:12px;padding:15px;background:#fcfdfd;font-family:inherit;line-height:2;white-space:pre-wrap}
+.pill{padding:5px 9px;border-radius:20px;background:#f0f4f7;color:#5c6e84;font-size:10px}
+.pill-row{display:flex;gap:7px;flex-wrap:wrap}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:3px 7px;font-size:9px;color:#718097}
+.step{padding:14px;background:#f8fafc;border:1px solid var(--line);border-radius:13px}
+.step-no{font-size:10px;color:var(--brand);font-weight:800}
+.step b{display:block;font-size:11px;margin-top:4px}
+.step span{font-size:10px;color:var(--muted)}
+.check-row{display:flex;align-items:flex-start;gap:9px;padding:10px 0;border-bottom:1px solid var(--line)}
+.check-row:last-child{border:0}
+.check{width:20px;height:20px;border-radius:50%;background:var(--success-soft);color:var(--success);display:grid;place-items:center;font-size:11px;flex:none}
+.toast-host{position:fixed;bottom:22px;left:22px;z-index:100;display:flex;flex-direction:column;gap:8px}
+.toast{max-width:360px;background:#12243a;color:white;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;animation:rise .2s}
+.toast.error{background:#8f2937}.toast.success{background:#176346}
+.modal-backdrop{position:fixed;inset:0;background:rgba(8,17,31,.52);z-index:80;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-backdrop.open{display:flex}
+.modal{background:white;border-radius:18px;width:min(820px,100%);max-height:85vh;overflow:auto;box-shadow:0 25px 80px rgba(0,0,0,.25)}
+.modal-head{position:sticky;top:0;background:white;border-bottom:1px solid var(--line);padding:15px 18px;display:flex;justify-content:space-between;align-items:center;z-index:1}
+.modal-head h3{margin:0;font-size:14px}
+.modal-body{padding:18px}
+.source-text{white-space:pre-wrap;word-break:break-word;background:#f7f9fc;border:1px solid var(--line);border-radius:12px;padding:14px;max-height:58vh;overflow:auto;font-size:11px;line-height:2;font-family:inherit}
+.notice{padding:12px 14px;border-radius:12px;background:#f0f6fb;border:1px solid #dbe8f1;color:#4f6680;font-size:11px}
+.notice.warn{background:var(--warning-soft);border-color:#f1dfc2;color:#835713}
+.notice.good{background:var(--success-soft);border-color:#d6eddf;color:#236246}
+.notice.bad{background:var(--danger-soft);border-color:#f6d7d9;color:var(--danger)}
+.hidden{display:none!important}
+.loading{color:var(--muted);font-size:11px;padding:14px}
+.progress{height:7px;background:#edf1f5;border-radius:20px;overflow:hidden}
+.progress>span{display:block;height:100%;background:var(--brand);border-radius:20px}
+@media(max-width:1100px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.sidebar{transform:translateX(105%);transition:.2s;width:280px}.sidebar.open{transform:none}.main{margin-right:0;width:100%}.topbar{padding:0 14px;height:66px}.content{padding:19px 14px 38px}.hero{padding:20px;flex-direction:column;align-items:flex-start}.form-grid,.two,.three,.four{grid-template-columns:1fr}.fact-fields{grid-template-columns:1fr}.kpis{gap:9px}.kpi{padding:13px}.kpi-value{font-size:23px}.top-title{font-size:14px}.crumb{display:none}}
+@keyframes rise{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark">ص</div><div><div class="brand-name">صنعت‌نگار</div><div class="brand-sub">SANATNEGAR</div></div></div>
+    <div class="nav-label">میزکار</div>
+    <nav class="nav">
+      <button class="active" data-route="overview"><span class="nav-ico">▦</span>نمای کلی</button>
+      <button data-route="projects"><span class="nav-ico">▤</span>پروژه‌ها</button>
+      <button data-route="new-project"><span class="nav-ico">＋</span>ایجاد پروژه</button>
+    </nav>
+    <div class="nav-label">تولید و مستندسازی</div>
+    <nav class="nav">
+      <button data-route="workspace"><span class="nav-ico">◫</span>فضای کار پروژه</button>
+      <button data-route="documents"><span class="nav-ico">▧</span>کتابخانه اسناد</button>
+      <button data-route="verification"><span class="nav-ico">✓</span>اعتبارسنجی مشخصات</button>
+      <button data-route="conflicts"><span class="nav-ico">⚖</span>کنترل تعارض</button>
+      <button data-route="ai-content"><span class="nav-ico">✧</span>استودیو تولید محتوا</button>
+      <button data-route="catalogs"><span class="nav-ico">▤</span>کاتالوگ‌ها</button>
+      <button data-route="templates"><span class="nav-ico">▦</span>قالب‌ها</button>
+    </nav>
+    <div class="nav-label">مدیریت</div>
+    <nav class="nav">
+      <button data-route="settings"><span class="nav-ico">◈</span>تنظیمات هوش مصنوعی</button>
+      <button data-route="activity"><span class="nav-ico">◷</span>تاریخچه فعالیت</button>
+      <button data-route="support"><span class="nav-ico">?</span>راهنما و پشتیبانی</button>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:13px"><button class="btn btn-ghost btn-sm" id="hamburger" style="display:none">☰</button><div><div class="crumb">صنعت‌نگار / <span id="crumb">نمای کلی</span></div><div class="top-title" id="top-title">میزکار هوشمند صنعت‌نگار</div></div></div>
+      <div class="top-actions"><input id="global-search" placeholder="جست‌وجو…" autocomplete="off" style="border:1px solid var(--line);background:#f8fafc;border-radius:11px;padding:9px 12px;outline:none;width:min(290px,40vw);font:inherit"><button class="btn btn-primary" data-route="new-project">＋ پروژه جدید</button></div>
+    </header>
+    <main class="content">
+      <!-- OVERVIEW -->
+      <section class="view active" id="view-overview">
+        <div class="hero"><div><div class="eyebrow" style="color:#8be1d8">سامانه تولید محتوای تجاری صنعتی مبتنی بر شواهد</div><h1>از سند فنی تا محتوای آماده بازار</h1><p>اطلاعات محصول را از اسناد واقعی استخراج کن، برای تأیید انسانی آماده کن، و بر پایه داده‌های تأییدشده، محتوای تجاری و کاتالوگ بساز.</p></div><div class="hero-actions"><button class="btn btn-light" data-route="new-project">＋ ثبت محصول جدید</button></div></div>
+        <div class="grid kpis" id="dashboard-kpis"><div class="card kpi"><div class="kpi-label">پروژه‌ها</div><div class="kpi-value" id="kpi-projects">0</div><div class="kpi-note">پرونده‌های محصول</div></div><div class="card kpi"><div class="kpi-label">اسناد پردازش‌شده</div><div class="kpi-value" id="kpi-documents">0</div><div class="kpi-note">PDF، DOCX، XLSX، TXT</div></div><div class="card kpi"><div class="kpi-label">مشخصات تأییدشده</div><div class="kpi-value" id="kpi-approved">0</div><div class="kpi-note">پس از بازبینی</div></div><div class="card kpi"><div class="kpi-label">خروجی‌ها</div><div class="kpi-value" id="kpi-contents">0</div><div class="kpi-note">محتوا و کاتالوگ</div></div></div>
+        <div class="split"><div class="card card-pad"><div class="section-head" style="margin-top:0"><div><h2>پروژه‌های اخیر</h2><p>اطلاعات زنده</p></div><button class="btn btn-ghost btn-sm" data-route="projects">همه</button></div><div id="dashboard-projects"></div></div><div class="card card-pad"><div class="section-head" style="margin-top:0"><div><h2>مسیر استاندارد</h2></div></div><div class="grid" style="gap:8px"><div class="step"><span class="step-no">مرحله ۱</span><b>ثبت پرونده محصول</b><span>نام، تولیدکننده، حوزه</span></div><div class="step"><span class="step-no">مرحله ۲</span><b>بارگذاری سند</b><span>PDF/DOCX/XLSX/TXT</span></div><div class="step"><span class="step-no">مرحله ۳</span><b>استخراج و اعتبارسنجی</b><span>نمایش شاهد و تأیید</span></div><div class="step"><span class="step-no">مرحله ۴</span><b>تولید محتوا</b><span>متن فنی و تجاری</span></div><div class="step"><span class="step-no">مرحله ۵</span><b>خروجی PDF</b><span>کاتالوگ و بروشور</span></div></div></div></div>
+        <div class="section-head"><div><h2>آخرین فعالیت‌ها</h2></div></div><div class="card card-pad" id="dashboard-activity"></div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="view" id="view-projects">
+        <div class="page-head"><div><div class="eyebrow">مدیریت داده</div><h1>پروژه‌ها</h1><p>هر پروژه نماینده یک محصول صنعتی و اسناد مرجع آن است.</p></div><button class="btn btn-primary" data-route="new-project">＋ ایجاد پروژه</button></div>
+        <div class="card card-pad"><div class="toolbar"><input id="projects-search" class="searchbox" placeholder="جست‌وجو در عنوان، تولیدکننده یا حوزه…"><span class="muted tiny" id="projects-count"></span></div><div id="projects-table"></div></div>
+      </section>
+
+      <!-- NEW PROJECT -->
+      <section class="view" id="view-new-project">
+        <div class="page-head"><div><div class="eyebrow">شروع جریان کار</div><h1>ایجاد پرونده محصول صنعتی</h1><p>یک محصول تعریف کن؛ اسناد فنی را بارگذاری کن.</p></div></div>
+        <form class="card card-pad" id="new-project-form">
+          <div class="form-grid">
+            <div class="field"><label>نام محصول *</label><input id="new-name" required placeholder="مثلاً پمپ صنعتی سری X"></div>
+            <div class="field"><label>کد فنی</label><input id="new-code" placeholder="مدل یا پارت‌نامبر"></div>
+            <div class="field"><label>تولیدکننده</label><input id="new-maker" placeholder="نام شرکت"></div>
+            <div class="field"><label>حوزه صنعتی</label><select id="new-sector"><option>صنعت و تولید</option><option>نفت، گاز و پتروشیمی</option><option>انرژی و برق</option><option>کشاورزی و صنایع غذایی</option><option>ساختمان و زیرساخت</option><option>معدن و فلزات</option><option>حمل‌ونقل</option><option>سلامت</option><option>فناوری اطلاعات</option><option>عمومی</option></select></div>
+            <div class="field full"><label>اسناد مرجع (اختیاری — می‌توانید بعداً اضافه کنید)</label><div class="dropzone" id="new-dropzone"><div class="big">⇧</div><b>فایل‌ها را رها کن یا کلیک کن</b><span>PDF، DOCX، XLSX، TXT، CSV · حداکثر ۲۰MB</span><input type="file" id="new-files" class="hidden" accept=".pdf,.docx,.xlsx,.txt,.csv" multiple></div><div id="new-file-list" class="filelist"></div></div>
+          </div>
+          <div class="notice warn" style="margin-top:15px">اطلاعات استخراج‌شده ابتدا «نامزد» هستند و تا زمان تأیید انسان وارد محتوای خروجی نمی‌شوند.</div>
+          <div class="form-actions"><button class="btn btn-primary" type="submit" id="create-project-submit">ایجاد پرونده و پردازش اسناد</button><button class="btn btn-ghost" type="reset">پاک کردن</button></div>
+          <div id="new-project-status" class="small muted" style="margin-top:9px"></div>
+        </form>
+      </section>
+
+      <!-- WORKSPACE -->
+      <section class="view" id="view-workspace"><div id="workspace-root"></div></section>
+
+      <!-- DOCUMENTS -->
+      <section class="view" id="view-documents">
+        <div class="page-head"><div><div class="eyebrow">اسناد مرجع</div><h1>کتابخانه اسناد</h1><p>فهرست اسناد و متن استخراج‌شده.</p></div><button class="btn btn-primary" data-route="new-project">＋ بارگذاری</button></div>
+        <div class="card card-pad"><div class="toolbar"><input id="documents-search" class="searchbox" placeholder="نام فایل یا پروژه…"><span class="muted tiny" id="documents-count"></span></div><div id="documents-table"></div></div>
+      </section>
+
+      <!-- VERIFICATION -->
+      <section class="view" id="view-verification">
+        <div class="page-head"><div><div class="eyebrow">کیفیت</div><h1>اعتبارسنجی مشخصات</h1><p>هر نامزد را با شاهد اصلی بررسی کن؛ فقط موارد درست را تأیید کن.</p></div><span class="status pending" id="verification-pending-count">در انتظار</span></div>
+        <div class="toolbar"><select id="facts-filter"><option value="pending_review">در انتظار بررسی</option><option value="approved">تأییدشده</option><option value="rejected">ردشده</option><option value="all">همه</option></select><input id="facts-search" class="searchbox" placeholder="جست‌وجو…"><button class="btn btn-ghost btn-sm" id="facts-refresh">↻</button></div>
+        <div id="verification-list"></div>
+      </section>
+
+      <!-- CONFLICTS -->
+      <section class="view" id="view-conflicts">
+        <div class="page-head"><div><div class="eyebrow">کنترل سازگاری</div><h1>تعارض مشخصات</h1><p>مقادیر متناقض برای یک ویژگی. هیچ نسخه‌ای خودکار برنده اعلام نمی‌شود.</p></div><button class="btn btn-ghost" id="conflicts-refresh">↻ بررسی</button></div>
+        <div class="card card-pad"><div class="toolbar"><select id="conflict-project-filter"><option value="">انتخاب پرونده…</option></select><span class="status info" id="conflicts-summary">—</span></div><div id="conflicts-list"></div></div>
+      </section>
+
+      <!-- AI CONTENT -->
+      <section class="view" id="view-ai-content">
+        <div class="page-head"><div><div class="eyebrow">تولید محتوای مستند</div><h1>استودیو تولید محتوا</h1><p>پیش‌نویس را فقط از مشخصات تأییدشده بساز.</p></div></div>
+        <div class="split"><div class="card card-pad">
+          <div class="field"><label>پرونده محصول</label><select id="studio-project"><option value="">ابتدا پروژه را انتخاب کن</option></select></div>
+          <div class="field" style="margin-top:10px"><label>قالب</label><select id="studio-template"></select></div>
+          <div class="field" style="margin-top:10px"><label>زبان</label><select id="studio-language"><option value="fa">فارسی</option><option value="en">English</option><option value="ar">العربية</option></select></div>
+          <div class="notice" style="margin-top:13px">هر ادعای فنی به شناسه شاهد مانند [F1] متصل است. اگر کلید AI تنظیم نشده باشد، از قالب پایه استفاده می‌شود.</div>
+          <div class="form-actions"><button class="btn btn-primary" id="generate-content">✧ تولید پیش‌نویس</button><button class="btn btn-ghost" id="load-content-history">تاریخچه</button></div>
+          <div id="studio-status" class="small muted" style="margin-top:9px"></div>
+        </div>
+        <div class="card card-pad">
+          <div class="field"><label>عنوان</label><input id="content-title" placeholder="عنوان محتوا"></div>
+          <div class="field" style="margin-top:10px"><label>متن (قابل ویرایش)</label><textarea id="content-body" class="content-output" placeholder="پس از تولید، متن اینجا…"></textarea></div>
+          <div class="form-actions"><button class="btn btn-primary" id="save-content" disabled>ذخیره ویرایش</button><button class="btn btn-ghost" id="copy-content" disabled>کپی</button><button class="btn btn-soft" id="content-to-pdf" disabled>ساخت PDF</button></div>
+          <div class="tiny muted" id="content-meta"></div>
+        </div></div>
+        <div class="section-head"><div><h2>تاریخچه محتوا</h2></div></div><div class="card card-pad" id="content-history"></div>
+      </section>
+
+      <!-- CATALOGS -->
+      <section class="view" id="view-catalogs">
+        <div class="page-head"><div><div class="eyebrow">خروجی</div><h1>کاتالوگ‌ها</h1><p>تاریخچه فایل‌های PDF تولیدشده.</p></div></div>
+        <div class="card card-pad"><div class="toolbar"><select id="catalog-project-filter"><option value="">همه پروژه‌ها</option></select><button class="btn btn-ghost btn-sm" id="catalog-refresh">↻</button></div><div id="catalog-list"></div></div>
+      </section>
+
+      <!-- TEMPLATES -->
+      <section class="view" id="view-templates">
+        <div class="page-head"><div><div class="eyebrow">الگوها</div><h1>قالب‌های محتوا</h1><p>قالب‌ها را انتخاب کن؛ داده‌های تأییدشده پروژه استفاده می‌شود.</p></div></div>
+        <div class="grid three" id="templates-grid"></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view" id="view-settings">
+        <div class="page-head"><div><div class="eyebrow">مدیریت اتصال هوش مصنوعی</div><h1>تنظیمات AI</h1><p>کلید API را در مرورگر خودتان وارد کنید. کلید فقط در localStorage دستگاه شما ذخیره می‌شود.</p></div></div>
+        <div class="notice warn" style="margin-bottom:14px">⚠️ این نسخه کلاینت‌ساید است. کلید API در localStorage ذخیره می‌شود و مستقیماً از مرورگر به ارائه‌دهنده ارسال می‌شود. برای محیط تولید از نسخه با Backend استفاده کنید.</div>
+        <div class="card card-pad">
+          <div class="form-grid">
+            <div class="field"><label>ارائه‌دهنده</label><select id="ai-provider"><option value="deepseek">DeepSeek (ارزان‌ترین)</option><option value="openai">OpenAI</option><option value="gemini">Google Gemini</option></select></div>
+            <div class="field"><label>مدل</label><input id="ai-model" placeholder="deepseek-chat / gpt-4o-mini / gemini-1.5-flash"></div>
+            <div class="field full"><label>کلید API</label><input type="password" id="ai-key" placeholder="sk-..." autocomplete="off"></div>
+          </div>
+          <div class="form-actions"><button class="btn btn-primary" id="save-ai-config">ذخیره تنظیمات</button><button class="btn btn-ghost" id="test-ai-config">تست اتصال</button><button class="btn btn-danger" id="clear-ai-config">حذف کلید</button></div>
+          <div id="ai-status" class="small muted" style="margin-top:10px"></div>
+        </div>
+      </section>
+
+      <!-- ACTIVITY -->
+      <section class="view" id="view-activity">
+        <div class="page-head"><div><div class="eyebrow">ردپا</div><h1>تاریخچه فعالیت</h1><p>همه رویدادها در این مرورگر.</p></div><button class="btn btn-ghost" id="activity-refresh">↻</button></div>
+        <div class="card card-pad"><div class="toolbar"><input id="activity-search" class="searchbox" placeholder="فیلتر…"></div><div id="activity-list"></div></div>
+      </section>
+
+      <!-- SUPPORT -->
+      <section class="view" id="view-support">
+        <div class="page-head"><div><div class="eyebrow">راهنما</div><h1>راهنمای استفاده</h1></div></div>
+        <div class="grid"><div class="card card-pad">
+          <h2 style="font-size:14px;margin-top:0">شروع سریع</h2>
+          <ol class="small muted" style="padding-right:18px;line-height:2.2">
+            <li>از منوی «ایجاد پروژه» یک محصول صنعتی ثبت کن.</li>
+            <li>سند معتبر (PDF، DOCX، XLSX یا TXT) بارگذاری کن.</li>
+            <li>سامانه متن را استخراج و مشخصات را شناسایی می‌کند.</li>
+            <li>در «اعتبارسنجی» هر مشخصه را با شاهد بررسی و تأیید کن.</li>
+            <li>در «استودیو» قالب و زبان را انتخاب و پیش‌نویس بساز.</li>
+            <li>متن را بازبینی و در صورت نیاز PDF بگیر.</li>
+          </ol>
+          <div class="notice" style="margin-top:12px">💡 <b>این نسخه کاملاً در مرورگر اجرا می‌شود.</b> داده‌ها در localStorage ذخیره می‌شوند و بین جلسات باقی می‌مانند. برای پاک کردن، از تنظیمات مرورگر → Clear Site Data استفاده کنید.</div>
+          <button class="btn btn-primary" data-route="new-project" style="margin-top:12px">شروع پروژه</button>
+        </div></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-backdrop"><div class="modal"><div class="modal-head"><h3 id="modal-title">جزئیات</h3><button class="btn btn-ghost btn-sm" id="modal-close">بستن ✕</button></div><div class="modal-body" id="modal-body"></div></div></div>
+<div class="toast-host" id="toast-host"></div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+
+/* ============ STORE (localStorage) ============ */
+const Store = {
+  load(key, def = null) { try { const v = localStorage.getItem('sn_' + key); return v ? JSON.parse(v) : def; } catch { return def; } },
+  save(key, val) { try { localStorage.setItem('sn_' + key, JSON.stringify(val)); } catch(e) { toast('خطا در ذخیره‌سازی: '+e.message, 'error'); } },
+  nextId(table) { const items = this.load(table, []); return items.length ? Math.max(...items.map(i => i.id)) + 1 : 1; },
+  add(table, item) { const items = this.load(table, []); item.id = this.nextId(table); item.created_at = new Date().toISOString(); items.unshift(item); this.save(table, items); return item; },
+  update(table, id, patch) { const items = this.load(table, []); const i = items.findIndex(x => x.id === id); if (i < 0) return null; items[i] = { ...items[i], ...patch }; this.save(table, items); return items[i]; },
+  remove(table, id) { const items = this.load(table, []).filter(x => x.id !== id); this.save(table, items); },
+  all(table) { return this.load(table, []); }
+};
+
+/* ============ UTILS ============ */
+const titles = {
+  overview:['میزکار هوشمند صنعت‌نگار','نمای کلی'],projects:['مدیریت پروژه‌ها','پروژه‌ها'],
+  'new-project':['ایجاد پرونده محصول','پروژه جدید'],workspace:['فضای کار پروژه','فضای کار'],
+  documents:['کتابخانه اسناد','اسناد'],verification:['اعتبارسنجی مشخصات','اعتبارسنجی'],
+  conflicts:['کنترل تعارض','تعارض‌ها'],'ai-content':['استودیو تولید محتوا','تولید محتوا'],
+  catalogs:['کاتالوگ‌ها','کاتالوگ‌ها'],templates:['قالب‌های محتوا','قالب‌ها'],
+  settings:['تنظیمات AI','تنظیمات'],activity:['تاریخچه','تاریخچه'],support:['راهنما','راهنما']
+};
+const state = { route:'overview', projectId: Number(localStorage.getItem('sn_current_project')) || null, currentContentId: null, currentContentProjectId: null };
+
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function fmtBytes(s){if(!s)return '—';return s<1024*1024?`${(s/1024).toFixed(0)}KB`:`${(s/1024/1024).toFixed(2)}MB`;}
+function fmtDate(v){if(!v)return '—';const d=new Date(v);return isNaN(d)?v:new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium',timeStyle:'short'}).format(d);}
+function toast(msg,type='success'){const n=document.createElement('div');n.className='toast '+type;n.textContent=msg;$('toast-host').appendChild(n);setTimeout(()=>n.remove(),4000);}
+function statusBadge(s){return s==='approved'?'<span class="status ok">✓ تأییدشده</span>':s==='rejected'?'<span class="status bad">× ردشده</span>':'<span class="status pending">در انتظار</span>';}
+function logActivity(action, details='', project_id=null){Store.add('activity',{action,details,project_id});}
+
+/* ============ FILE EXTRACTION (client-side) ============ */
+const scriptCache = {};
+function loadScript(src, globalName) {
+  if (scriptCache[globalName]) return Promise.resolve(window[globalName]);
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = () => { scriptCache[globalName] = true; resolve(window[globalName]); };
+    s.onerror = () => reject(new Error('بارگذاری کتابخانه ناموفق: ' + globalName));
+    document.head.appendChild(s);
+  });
+}
+
+const Extractor = {
+  async pdf(file) {
+    await loadScript('https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js', 'pdfjsLib');
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    const buf = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+    let text = '';
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      text += content.items.map(s => s.str).join(' ') + '\n\n';
+    }
+    return { text, pages: pdf.numPages };
+  },
+  async docx(file) {
+    await loadScript('https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js', 'mammoth');
+    const buf = await file.arrayBuffer();
+    const result = await mammoth.extractRawText({ arrayBuffer: buf });
+    return { text: result.value, pages: 1 };
+  },
+  async xlsx(file) {
+    await loadScript('https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js', 'XLSX');
+    const buf = await file.arrayBuffer();
+    const wb = XLSX.read(buf, { type: 'array' });
+    let text = '';
+    for (const sheet of wb.SheetNames) {
+      text += `### Sheet: ${sheet}\n`;
+      text += XLSX.utils.sheet_to_csv(wb.Sheets[sheet]) + '\n\n';
+    }
+    return { text, pages: wb.SheetNames.length };
+  },
+  async txt(file) { return { text: await file.text(), pages: 1 }; },
+  async extract(file) {
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (ext === 'pdf') return this.pdf(file);
+    if (ext === 'docx') return this.docx(file);
+    if (ext === 'xlsx') return this.xlsx(file);
+    if (ext === 'txt' || ext === 'csv') return this.txt(file);
+    throw new Error('فرمت پشتیبانی نمی‌شود: ' + ext);
+  },
+  extractFacts(text) {
+    const RE = /(?<name>[\u0600-\u06FFA-Za-z][\u0600-\u06FFA-Za-z0-9 \-\/()]{2,60}?)\s*[:=]\s*(?<value>-?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d+)?|-?\d+(?:[.,]\d+)?)\s*(?<unit>%|kg|g|mg|mm|cm|m|km|kW|MW|W|V|A|Hz|rpm|bar|psi|Pa|kPa|MPa|°C|°F|C|F|L|l|ml|m3\/h|m³\/h|Nm|KN|kN|ton|t|hp|HP)?/g;
+    const facts = [];
+    const seen = new Set();
+    let m, count = 0;
+    while ((m = RE.exec(text)) !== null && count < 80) {
+      const name = m.groups.name.trim();
+      const value = m.groups.value;
+      const unit = (m.groups.unit || '').trim();
+      if (name.length < 2) continue;
+      const key = name.toLowerCase() + '|' + value + '|' + unit.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const start = Math.max(0, m.index - 30);
+      const end = Math.min(text.length, m.index + m[0].length + 30);
+      const evidence = text.slice(start, end).trim();
+      const sourceMatch = evidence.includes(m[0]);
+      const valueMatch = evidence.includes(value) && (!unit || evidence.toLowerCase().includes(unit.toLowerCase()));
+      facts.push({
+        name: name.slice(0, 200), value: value.slice(0, 200), unit: unit.slice(0, 50),
+        evidence: evidence.slice(0, 1200), page_number: 0, source_location: '',
+        extraction_method: 'regex-client',
+        source_match: sourceMatch, value_match: valueMatch,
+        confidence: sourceMatch && valueMatch ? 0.75 : 0.45,
+        status: 'pending_review'
+      });
+      count++;
+    }
+    return facts;
+  }
+};
+
+/* ============ AI (browser direct) ============ */
+const AI = {
+  getConfig() { return Store.load('ai_config', { provider: 'deepseek', model: '', apiKey: '' }); },
+  saveConfig(cfg) { Store.save('ai_config', cfg); },
+  async chat(system, user) {
+    const cfg = this.getConfig();
+    if (!cfg.apiKey) throw new Error('کلید API تنظیم نشده. از صفحه تنظیمات، کلید را وارد کنید.');
+    const provider = cfg.provider;
+    let url, headers, body;
+    if (provider === 'openai') {
+      url = 'https://api.openai.com/v1/chat/completions';
+      headers = { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + cfg.apiKey };
+      body = { model: cfg.model || 'gpt-4o-mini', messages: [{ role: 'system', content: system }, { role: 'user', content: user }], temperature: 0.3 };
+    } else if (provider === 'deepseek') {
+      url = 'https://api.deepseek.com/chat/completions';
+      headers = { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + cfg.apiKey };
+      body = { model: cfg.model || 'deepseek-chat', messages: [{ role: 'system', content: system }, { role: 'user', content: user }], temperature: 0.3 };
+    } else if (provider === 'gemini') {
+      url = `https://generativelanguage.googleapis.com/v1beta/models/${cfg.model || 'gemini-1.5-flash'}:generateContent?key=${cfg.apiKey}`;
+      headers = { 'Content-Type': 'application/json' };
+      body = { contents: [{ parts: [{ text: system + '\n\n' + user }] }] };
+    } else throw new Error('ارائه‌دهنده نامعتبر: ' + provider);
+    const res = await fetch(url, { method: 'POST', headers, body: JSON.stringify(body) });
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`خطای AI (${res.status}): ${err.slice(0, 300)}`);
+    }
+    const data = await res.json();
+    if (provider === 'gemini') return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    return data.choices?.[0]?.message?.content || '';
+  }
+};
+
+/* ============ TEMPLATES SEED ============ */
+const SEED_TEMPLATES = [
+  { id: 'technical', name: 'معرفی فنی محصول', description: 'متن فنی دقیق با ارجاع به شواهد', prompt: 'یک معرفی فنی دقیق بنویس که هر ادعا به [Fشماره] ارجاع دهد.' },
+  { id: 'commercial', name: 'بروشور تجاری', description: 'متن جذاب برای فروش B2B', prompt: 'یک بروشور تجاری B2B با تأکید بر ارزش بنویس.' },
+  { id: 'export', name: 'معرفی صادراتی', description: 'نسخه انگلیسی صادراتی', prompt: 'Write a professional export description in English.' },
+  { id: 'datasheet', name: 'برگه مشخصات', description: 'لیست ساختاریافته مشخصات', prompt: 'یک برگه مشخصات با جدول ویژگی‌ها بنویس.' },
+  { id: 'website', name: 'توضیحات وب‌سایت', description: 'محتوای سئو شده', prompt: 'توضیحات صفحه محصول با ساختار سئو بنویس.' },
+  { id: 'exhibition', name: 'معرفی نمایشگاهی', description: 'متن کوتاه اثرگذار', prompt: 'یک معرفی کوتاه برای نمایشگاه بنویس.' }
+];
+if (!Store.load('templates')) Store.save('templates', SEED_TEMPLATES);
+
+/* ============ ROUTER ============ */
+function setRoute(route) {
+  if (!titles[route]) route = 'overview';
+  state.route = route;
+  document.querySelectorAll('.view').forEach(el => el.classList.toggle('active', el.id === 'view-' + route));
+  document.querySelectorAll('.nav button[data-route]').forEach(el => el.classList.toggle('active', el.dataset.route === route));
+  $('top-title').textContent = titles[route][0];
+  $('crumb').textContent = titles[route][1];
+  $('sidebar').classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const fn = {
+    overview: loadOverview, projects: loadProjects, documents: loadDocuments,
+    workspace: loadWorkspace, verification: loadVerification, conflicts: loadConflicts,
+    'ai-content': loadStudio, catalogs: loadCatalogs, templates: loadTemplates,
+    settings: loadSettings, activity: loadActivity
+  }[route];
+  if (fn) fn();
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-route]');
+  if (t) { e.preventDefault(); setRoute(t.dataset.route); }
+});
+$('modal-close').onclick = () => $('modal-backdrop').classList.remove('open');
+$('modal-backdrop').onclick = e => { if (e.target === $('modal-backdrop')) $('modal-backdrop').classList.remove('open'); };
+function openModal(title, html) { $('modal-title').textContent = title; $('modal-body').innerHTML = html; $('modal-backdrop').classList.add('open'); }
+
+/* ============ OVERVIEW ============ */
+function loadOverview() {
+  const projects = Store.all('projects');
+  const documents = Store.all('documents');
+  const facts = Store.all('facts');
+  const contents = Store.all('contents');
+  const catalogs = Store.all('catalogs');
+  $('kpi-projects').textContent = projects.length;
+  $('kpi-documents').textContent = documents.length;
+  $('kpi-approved').textContent = facts.filter(f => f.status === 'approved').length;
+  $('kpi-contents').textContent = contents.length + catalogs.length;
+
+  $('dashboard-projects').innerHTML = projects.length ? `
+    <div class="table-wrap"><table class="table"><thead><tr><th>محصول</th><th>حوزه</th><th>سند</th><th>تأییدشده</th><th></th></tr></thead><tbody>
+    ${projects.slice(0, 6).map(p => `<tr>
+      <td><b>${esc(p.name)}</b><div class="tiny muted">${esc(p.manufacturer || '—')}</div></td>
+      <td>${esc(p.sector)}</td>
+      <td>${documents.filter(d => d.project_id === p.id).length}</td>
+      <td>${facts.filter(f => f.project_id === p.id && f.status === 'approved').length}</td>
+      <td><button class="btn btn-soft btn-sm" data-open-project="${p.id}">باز کردن</button></td>
+    </tr>`).join('')}</tbody></table></div>
+  ` : `<div class="empty"><div class="empty-icon">▤</div><b>هنوز پروژه‌ای نیست</b><p>اولین پرونده محصول را بساز.</p><button class="btn btn-primary" data-route="new-project">ایجاد پروژه</button></div>`;
+
+  const acts = Store.all('activity').slice(0, 8);
+  $('dashboard-activity').innerHTML = acts.length ? acts.map(a => `
+    <div class="check-row"><div class="check">✓</div><div><b class="small">${esc(a.action)}</b><div class="tiny muted">${esc(a.details || '')} · ${esc(fmtDate(a.created_at))}</div></div></div>
+  `).join('') : `<div class="empty"><b>هنوز فعالیتی نیست</b><p>با ایجاد پروژه، رویدادها ثبت می‌شوند.</p></div>`;
+}
+
+/* ============ PROJECTS ============ */
+function loadProjects() {
+  const q = ($('projects-search').value || '').toLowerCase();
+  let projects = Store.all('projects');
+  if (q) projects = projects.filter(p => (p.name + ' ' + (p.manufacturer||'') + ' ' + p.sector).toLowerCase().includes(q));
+  $('projects-count').textContent = projects.length + ' پرونده';
+  const facts = Store.all('facts');
+  const documents = Store.all('documents');
+  $('projects-table').innerHTML = projects.length ? `
+    <div class="table-wrap"><table class="table"><thead><tr><th>نام</th><th>تولیدکننده</th><th>حوزه</th><th>اسناد</th><th>مشخصات</th><th>عملیات</th></tr></thead><tbody>
+    ${projects.map(p => `<tr>
+      <td><b>${esc(p.name)}</b><div class="tiny muted">${esc(p.product_code || 'بدون کد')}</div></td>
+      <td>${esc(p.manufacturer || '—')}</td>
+      <td>${esc(p.sector)}</td>
+      <td>${documents.filter(d => d.project_id === p.id).length}</td>
+      <td>${facts.filter(f => f.project_id === p.id && f.status === 'approved').length} / ${facts.filter(f => f.project_id === p.id).length}</td>
+      <td><div class="actions" style="margin:0"><button class="btn btn-soft btn-sm" data-open-project="${p.id}">باز کردن</button><button class="btn btn-danger btn-sm" data-delete-project="${p.id}">حذف</button></div></td>
+    </tr>`).join('')}</tbody></table></div>
+  ` : `<div class="empty"><div class="empty-icon">▤</div><b>پروژه‌ای یافت نشد</b><button class="btn btn-primary" data-route="new-project">ایجاد</button></div>`;
+}
+$('projects-search').oninput = loadProjects;
+
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open-project]');
+  if (o) { state.projectId = Number(o.dataset.openProject); localStorage.setItem('sn_current_project', String(state.projectId)); setRoute('workspace'); }
+  const d = e.target.closest('[data-delete-project]');
+  if (d) {
+    if (!confirm('پروژه و همه داده‌های مرتبط حذف شوند؟')) return;
+    const id = Number(d.dataset.deleteProject);
+    Store.remove('projects', id);
+    Store.save('documents', Store.all('documents').filter(x => x.project_id !== id));
+    Store.save('facts', Store.all('facts').filter(x => x.project_id !== id));
+    Store.save('contents', Store.all('contents').filter(x => x.project_id !== id));
+    Store.save('catalogs', Store.all('catalogs').filter(x => x.project_id !== id));
+    toast('پروژه حذف شد.'); loadProjects();
+  }
+});
+
+/* ============ NEW PROJECT ============ */
+const newFiles = $('new-files');
+$('new-dropzone').onclick = () => newFiles.click();
+$('new-dropzone').ondragover = e => { e.preventDefault(); $('new-dropzone').classList.add('drag'); };
+$('new-dropzone').ondragleave = () => $('new-dropzone').classList.remove('drag');
+$('new-dropzone').ondrop = e => { e.preventDefault(); $('new-dropzone').classList.remove('drag'); if (e.dataTransfer.files.length) { newFiles.files = e.dataTransfer.files; renderFiles(); } };
+newFiles.onchange = renderFiles;
+function renderFiles() {
+  $('new-file-list').innerHTML = [...newFiles.files].map(f => `<div class="file-chip"><span>${esc(f.name)}</span><span>${fmtBytes(f.size)}</span></div>`).join('');
+}
+
+$('new-project-form').onsubmit = async e => {
+  e.preventDefault();
+  const name = $('new-name').value.trim();
+  if (!name) return;
+  const btn = $('create-project-submit');
+  btn.disabled = true;
+  const status = $('new-project-status');
+  try {
+    const project = Store.add('projects', {
+      name, product_code: $('new-code').value.trim(),
+      manufacturer: $('new-maker').value.trim(), sector: $('new-sector').value
+    });
+    logActivity('ایجاد پروژه', name, project.id);
+    status.textContent = 'پرونده ایجاد شد. در حال پردازش اسناد…';
+    let factCount = 0, docCount = 0;
+    for (const file of newFiles.files) {
+      try {
+        status.textContent = `استخراج متن از ${file.name}…`;
+        const { text, pages } = await Extractor.extract(file);
+        const truncated = text.slice(0, 500000);
+        const doc = Store.add('documents', {
+          project_id: project.id, filename: file.name,
+          file_type: file.name.split('.').pop().toLowerCase(),
+          file_size: file.size, page_count: pages,
+          extracted_text: truncated, status: 'processed'
+        });
+        docCount++;
+        const facts = Extractor.extractFacts(truncated);
+        for (const f of facts) { f.project_id = project.id; f.document_id = doc.id; Store.add('facts', f); factCount++; }
+        logActivity('پردازش سند', `${file.name} · ${facts.length} مشخصه`, project.id);
+      } catch (err) {
+        status.textContent = `خطا در ${file.name}: ${err.message}`;
+        toast(err.message, 'error');
+      }
+    }
+    status.textContent = `پایان: ${docCount} سند پردازش شد، ${factCount} مشخصه برای بازبینی ایجاد شد.`;
+    toast('پرونده ایجاد شد.');
+    setTimeout(() => { state.projectId = project.id; localStorage.setItem('sn_current_project', String(project.id)); setRoute('workspace'); }, 800);
+  } catch (err) {
+    status.textContent = 'خطا: ' + err.message;
+    toast(err.message, 'error');
+  } finally { btn.disabled = false; }
+};
+
+/* ============ WORKSPACE ============ */
+function loadWorkspace() {
+  const id = state.projectId;
+  if (!id) { $('workspace-root').innerHTML = `<div class="empty"><div class="empty-icon">▣</div><b>پروژه‌ای انتخاب نشده</b><p>از پروژه‌ها یک پرونده باز کن.</p><button class="btn btn-primary" data-route="projects">رفتن به پروژه‌ها</button></div>`; return; }
+  const project = Store.all('projects').find(p => p.id === id);
+  if (!project) { state.projectId = null; localStorage.removeItem('sn_current_project'); $('workspace-root').innerHTML = `<div class="empty"><b>پروژه یافت نشد</b><button class="btn btn-primary" data-route="projects">بازگشت</button></div>`; return; }
+  const docs = Store.all('documents').filter(d => d.project_id === id);
+  const facts = Store.all('facts').filter(f => f.project_id === id);
+  const approved = facts.filter(f => f.status === 'approved').length;
+  const pending = facts.filter(f => f.status === 'pending_review').length;
+
+  $('workspace-root').innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">پرونده · ${esc(project.sector)}</div><h1>${esc(project.name)}</h1><p>${esc(project.manufacturer || '—')} · ${esc(project.product_code || 'بدون کد')}</p></div>
+      <div class="actions" style="margin:0"><button class="btn btn-primary" id="goto-studio">تولید محتوا ✧</button></div>
+    </div>
+    <div class="grid four" style="margin-bottom:15px">
+      <div class="card kpi"><div class="kpi-label">اسناد</div><div class="kpi-value">${docs.length}</div></div>
+      <div class="card kpi"><div class="kpi-label">کل مشخصات</div><div class="kpi-value">${facts.length}</div></div>
+      <div class="card kpi"><div class="kpi-label">تأییدشده</div><div class="kpi-value">${approved}</div></div>
+      <div class="card kpi"><div class="kpi-label">در انتظار</div><div class="kpi-value">${pending}</div></div>
+    </div>
+    <div class="split">
+      <div class="card card-pad">
+        <div class="section-head" style="margin-top:0"><div><h2>اسناد</h2></div></div>
+        <div id="workspace-docs">${renderDocs(docs)}</div>
+        <div class="section-head"><div><h2>افزودن سند</h2></div></div>
+        <div class="dropzone" id="ws-dropzone"><div class="big">⇧</div><b>کلیک یا رها کردن فایل</b><span>PDF، DOCX، XLSX، TXT</span><input type="file" id="ws-files" class="hidden" accept=".pdf,.docx,.xlsx,.txt,.csv" multiple></div>
+        <div id="ws-status" class="small muted" style="margin-top:10px"></div>
+      </div>
+      <div class="card card-pad">
+        <div class="section-head" style="margin-top:0"><div><h2>مشخصات استخراج‌شده</h2></div><button class="btn btn-soft btn-sm" id="ws-verify">اعتبارسنجی</button></div>
+        <div id="ws-facts">${renderFactsMini(facts.slice(0, 5))}</div>
+      </div>
+    </div>
+  `;
+  document.querySelectorAll('#workspace [data-route]').forEach(el => el.onclick = e => { e.preventDefault(); setRoute(el.dataset.route); });
+  $('goto-studio').onclick = () => { $('studio-project').value = String(id); setRoute('ai-content'); };
+  $('ws-verify').onclick = () => { $('facts-filter').value = 'pending_review'; setRoute('verification'); };
+  bindWsUpload(id);
+}
+function renderDocs(docs) {
+  if (!docs.length) return `<div class="empty" style="padding:20px"><b>سندی نیست</b></div>`;
+  return `<div class="table-wrap"><table class="table"><thead><tr><th>نام</th><th>نوع</th><th>صفحه</th><th>عملیات</th></tr></thead><tbody>
+    ${docs.map(d => `<tr><td><b>${esc(d.filename)}</b><div class="tiny muted">${fmtDate(d.created_at)}</div></td><td>${esc(d.file_type.toUpperCase())}</td><td>${d.page_count || '—'}</td>
+    <td><div class="actions" style="margin:0"><button class="btn btn-soft btn-sm" data-view-doc="${d.id}">متن</button><button class="btn btn-danger btn-sm" data-delete-doc="${d.id}">حذف</button></div></td></tr>`).join('')}</tbody></table></div>`;
+}
+function renderFactsMini(facts) {
+  if (!facts.length) return `<div class="empty" style="padding:20px"><b>مشخصه‌ای نیست</b><p class="tiny">پس از پردازش سند، موارد اینجا دیده می‌شوند.</p></div>`;
+  return facts.map(f => `<div class="fact-card"><div class="fact-head"><div><b>${esc(f.name)}: ${esc(f.value)} ${esc(f.unit)}</b><div class="tiny muted">${esc(f.evidence.slice(0, 80))}…</div></div>${statusBadge(f.status)}</div></div>`).join('');
+}
+function bindWsUpload(pid) {
+  const inp = $('ws-files'), zone = $('ws-dropzone');
+  zone.onclick = () => inp.click();
+  zone.ondragover = e => { e.preventDefault(); zone.classList.add('drag'); };
+  zone.ondragleave = () => zone.classList.remove('drag');
+  zone.ondrop = e => { e.preventDefault(); zone.classList.remove('drag'); if (e.dataTransfer.files.length) processWsFiles([...e.dataTransfer.files], pid); };
+  inp.onchange = () => { if (inp.files.length) processWsFiles([...inp.files], pid); };
+}
+async function processWsFiles(files, pid) {
+  const status = $('ws-status');
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    try {
+      status.textContent = `استخراج از ${file.name} (${i+1}/${files.length})…`;
+      const { text, pages } = await Extractor.extract(file);
+      const doc = Store.add('documents', { project_id: pid, filename: file.name, file_type: file.name.split('.').pop().toLowerCase(), file_size: file.size, page_count: pages, extracted_text: text.slice(0, 500000), status: 'processed' });
+      const facts = Extractor.extractFacts(text);
+      for (const f of facts) { f.project_id = pid; f.document_id = doc.id; Store.add('facts', f); }
+      logActivity('پردازش سند', `${file.name} · ${facts.length} مشخصه`, pid);
+    } catch (err) { toast(err.message, 'error'); }
+  }
+  status.textContent = 'پایان پردازش.';
+  loadWorkspace();
+}
+
+document.addEventListener('click', e => {
+  const v = e.target.closest('[data-view-doc]');
+  if (v) {
+    const d = Store.all('documents').find(x => x.id === Number(v.dataset.viewDoc));
+    if (d) openModal('متن: ' + d.filename, `<div class="notice" style="margin-bottom:10px">${(d.extracted_text||'').length.toLocaleString('fa-IR')} نویسه</div><div class="source-text">${esc(d.extracted_text || '—')}</div>`);
+  }
+  const del = e.target.closest('[data-delete-doc]');
+  if (del) {
+    if (!confirm('سند و مشخصات استخراج‌شده از آن حذف شوند؟')) return;
+    const id = Number(del.dataset.deleteDoc);
+    Store.remove('documents', id);
+    Store.save('facts', Store.all('facts').filter(f => f.document_id !== id));
+    toast('سند حذف شد.');
+    if (state.route === 'workspace') loadWorkspace(); else if (state.route === 'documents') loadDocuments();
+  }
+});
+
+/* ============ DOCUMENTS ============ */
+function loadDocuments() {
+  const q = ($('documents-search').value || '').toLowerCase();
+  let docs = Store.all('documents');
+  if (q) docs = docs.filter(d => d.filename.toLowerCase().includes(q));
+  $('documents-count').textContent = docs.length + ' سند';
+  const projects = Store.all('projects');
+  $('documents-table').innerHTML = docs.length ? `
+    <div class="table-wrap"><table class="table"><thead><tr><th>فایل</th><th>پروژه</th><th>نوع</th><th>صفحه</th><th>عملیات</th></tr></thead><tbody>
+    ${docs.map(d => `<tr>
+      <td><b>${esc(d.filename)}</b><div class="tiny muted">${fmtDate(d.created_at)}</div></td>
+      <td>${esc(projects.find(p => p.id === d.project_id)?.name || '—')}</td>
+      <td>${esc(d.file_type.toUpperCase())}</td>
+      <td>${d.page_count}</td>
+      <td><div class="actions" style="margin:0"><button class="btn btn-soft btn-sm" data-view-doc="${d.id}">متن</button><button class="btn btn-danger btn-sm" data-delete-doc="${d.id}">حذف</button></div></td>
+    </tr>`).join('')}</tbody></table></div>
+  ` : `<div class="empty"><b>سندی نیست</b><p>با ایجاد پروژه و بارگذاری فایل، کتابخانه پر می‌شود.</p></div>`;
+}
+$('documents-search').oninput = loadDocuments;
+
+/* ============ VERIFICATION ============ */
+function loadVerification() {
+  const status = $('facts-filter').value;
+  const q = ($('facts-search').value || '').toLowerCase();
+  let facts = Store.all('facts');
+  if (status !== 'all') facts = facts.filter(f => f.status === status);
+  if (q) facts = facts.filter(f => (f.name + ' ' + f.value).toLowerCase().includes(q));
+  $('verification-pending-count').textContent = facts.filter(f => f.status === 'pending_review').length + ' در انتظار';
+  const projects = Store.all('projects');
+  const docs = Store.all('documents');
+  if (!facts.length) { $('verification-list').innerHTML = `<div class="empty"><b>موردی برای نمایش نیست</b></div>`; return; }
+  $('verification-list').innerHTML = facts.map(f => {
+    const pname = projects.find(p => p.id === f.project_id)?.name || '';
+    const dname = docs.find(d => d.id === f.document_id)?.filename || '';
+    return `<article class="fact-card" data-fact="${f.id}">
+      <div class="fact-head"><div><b>${esc(f.name)}: ${esc(f.value)} ${esc(f.unit)}</b><div class="tiny muted">${esc(pname)} · ${esc(dname)}</div></div>${statusBadge(f.status)}</div>
+      <div class="fact-fields"><input data-fn value="${esc(f.name)}"><input data-fv value="${esc(f.value)}"><input data-fu value="${esc(f.unit)}"></div>
+      <div class="field"><label>شاهد از سند</label><textarea data-fe rows="2">${esc(f.evidence)}</textarea></div>
+      <div class="tiny muted" style="margin-top:6px">تطبیق عبارت: ${f.source_match?'✓':'✗'} · تطبیق مقدار: ${f.value_match?'✓':'✗'}</div>
+      <div class="actions">
+        <button class="btn btn-primary btn-sm" data-act="approve" data-id="${f.id}">تأیید</button>
+        <button class="btn btn-warning btn-sm" data-act="reject" data-id="${f.id}">رد</button>
+        <button class="btn btn-ghost btn-sm" data-act="save" data-id="${f.id}">ذخیره ویرایش</button>
+        <button class="btn btn-danger btn-sm" data-act="delete" data-id="${f.id}">حذف</button>
+      </div>
+    </article>`;
+  }).join('');
+}
+$('facts-filter').onchange = loadVerification;
+$('facts-search').oninput = loadVerification;
+$('facts-refresh').onclick = loadVerification;
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-act]');
+  if (!btn) return;
+  const id = Number(btn.dataset.id);
+  const card = btn.closest('[data-fact]');
+  const patch = {
+    name: card.querySelector('[data-fn]').value,
+    value: card.querySelector('[data-fv]').value,
+    unit: card.querySelector('[data-fu]').value,
+    evidence: card.querySelector('[data-fe]').value
+  };
+  if (btn.dataset.act === 'approve') { patch.status = 'approved'; logActivity('تأیید مشخصه', patch.name + ': ' + patch.value); }
+  else if (btn.dataset.act === 'reject') { patch.status = 'rejected'; }
+  else if (btn.dataset.act === 'delete') {
+    if (!confirm('این مشخصه حذف شود؟')) return;
+    Store.remove('facts', id); toast('حذف شد.'); loadVerification(); return;
+  }
+  Store.update('facts', id, patch);
+  toast('ذخیره شد.');
+  loadVerification();
+});
+
+/* ============ CONFLICTS ============ */
+function loadConflicts() {
+  const projects = Store.all('projects');
+  const sel = $('conflict-project-filter');
+  const cur = sel.value || String(state.projectId || '');
+  sel.innerHTML = '<option value="">انتخاب پرونده…</option>' + projects.map(p => `<option value="${p.id}">${esc(p.name)}</option>`).join('');
+  if (cur && projects.some(p => String(p.id) === cur)) sel.value = cur;
+  if (!sel.value) { $('conflicts-summary').textContent = 'انتخاب پرونده'; $('conflicts-list').innerHTML = `<div class="empty"><b>پرونده‌ای انتخاب نشده</b></div>`; return; }
+  const pid = Number(sel.value);
+  const facts = Store.all('facts').filter(f => f.project_id === pid && f.status !== 'rejected');
+  const groups = {};
+  facts.forEach(f => { const k = (f.name || '').trim().toLowerCase(); if (!groups[k]) groups[k] = []; groups[k].push(f); });
+  const conflicts = [];
+  Object.entries(groups).forEach(([name, items]) => {
+    if (items.length < 2) return;
+    const values = new Set(items.map(f => (f.value || '').replace(/,/g, '').trim() + '|' + (f.unit || '').toLowerCase()));
+    if (values.size < 2) return;
+    const pairs = [];
+    for (let i = 0; i < items.length; i++) for (let j = i + 1; j < items.length; j++) {
+      if (items[i].value !== items[j].value || items[i].unit !== items[j].unit) pairs.push({ left: items[i], right: items[j] });
+    }
+    if (pairs.length) conflicts.push({ attribute: name, pairs });
+  });
+  $('conflicts-summary').textContent = `${conflicts.length} گروه تعارض · ${conflicts.reduce((s, c) => s + c.pairs.length, 0)} جفت`;
+  const docs = Store.all('documents');
+  $('conflicts-list').innerHTML = conflicts.length ? conflicts.map(c => `
+    <article class="fact-card"><div class="fact-head"><div><b>${esc(c.attribute)}</b></div><span class="status pending">نیازمند تصمیم</span></div>
+    ${c.pairs.map(p => `<div class="grid two" style="margin-top:10px">
+      <div class="notice"><b>${esc(p.left.value)} ${esc(p.left.unit)}</b><div class="tiny">${esc(docs.find(d => d.id === p.left.document_id)?.filename || '—')}</div></div>
+      <div class="notice warn"><b>${esc(p.right.value)} ${esc(p.right.unit)}</b><div class="tiny">${esc(docs.find(d => d.id === p.right.document_id)?.filename || '—')}</div></div>
+    </div>`).join('')}</article>
+  `).join('') : `<div class="empty"><b>تعارضی یافت نشد</b><p>مقادیر متناقضی برای ویژگی یکسان ثبت نشده است.</p></div>`;
+}
+$('conflict-project-filter').onchange = loadConflicts;
+$('conflicts-refresh').onclick = loadConflicts;
+
+/* ============ AI CONTENT STUDIO ============ */
+function loadStudio() {
+  const projects = Store.all('projects');
+  const sel = $('studio-project');
+  const cur = sel.value || String(state.projectId || '');
+  sel.innerHTML = '<option value="">انتخاب پرونده…</option>' + projects.map(p => `<option value="${p.id}">${esc(p.name)}</option>`).join('');
+  if (cur && projects.some(p => String(p.id) === cur)) sel.value = cur;
+  const templates = Store.all('templates');
+  $('studio-template').innerHTML = templates.map(t => `<option value="${t.id}">${esc(t.name)}</option>`).join('');
+  loadContentHistory();
+}
+$('studio-project').onchange = loadContentHistory;
+
+$('generate-content').onclick = async () => {
+  const pid = Number($('studio-project').value);
+  if (!pid) { toast('پرونده را انتخاب کن.', 'error'); return; }
+  const project = Store.all('projects').find(p => p.id === pid);
+  const facts = Store.all('facts').filter(f => f.project_id === pid && f.status === 'approved');
+  if (!facts.length) { toast('حداقل یک مشخصه تأییدشده لازم است.', 'error'); return; }
+  const btn = $('generate-content');
+  btn.disabled = true;
+  $('studio-status').textContent = 'در حال تولید…';
+  const templateId = $('studio-template').value;
+  const language = $('studio-language').value;
+  const template = Store.all('templates').find(t => t.id === templateId);
+  const langInstr = { fa: 'به زبان فارسی رسمی و تخصصی بنویس.', en: 'Write in professional technical English.', ar: 'اكتب بالعربية الفصحى التقنية.' }[language];
+  const factsBlock = facts.map(f => `[F${f.id}] ${f.name}: ${f.value} ${f.unit}`).join('\n');
+  const system = 'تو یک نویسنده فنی صنعتی هستی. فقط از داده‌های داده‌شده استفاده کن و هیچ عددی نساز.';
+  const user = `دستور قالب: ${template?.prompt || template?.name}\n${langInstr}\n\nمحصول: ${project.name}\nتولیدکننده: ${project.manufacturer || '—'}\n\nمشخصات تأییدشده:\n${factsBlock}\n\nاکنون متن را بنویس.`;
+  let body, provider = 'template-fallback', note = '';
+  try {
+    body = await AI.chat(system, user);
+    provider = AI.getConfig().provider;
+  } catch (err) {
+    note = ' (' + err.message + ')';
+    body = `# ${project.name}\n\n` + (project.manufacturer ? `تولیدکننده: ${project.manufacturer}\n\n` : '') + `## مشخصات فنی تأییدشده\n\n` + facts.map(f => `- **${f.name}**: ${f.value} ${f.unit} [F${f.id}]`).join('\n');
+  }
+  const content = Store.add('contents', {
+    project_id: pid, title: project.name + ' · ' + (template?.name || ''), body,
+    style: templateId, language, provider, fact_ids: facts.map(f => f.id)
+  });
+  logActivity('تولید محتوا', `${template?.name} · ${facts.length} مشخصه · ${provider}`, pid);
+  state.currentContentId = content.id;
+  state.currentContentProjectId = pid;
+  $('content-title').value = content.title;
+  $('content-body').value = content.body;
+  $('content-meta').textContent = `شناسه: ${content.id} · ارائه‌دهنده: ${provider}${note}`;
+  $('save-content').disabled = false;
+  $('copy-content').disabled = false;
+  $('content-to-pdf').disabled = false;
+  $('studio-status').textContent = 'پیش‌نویس آماده است.';
+  toast('پیش‌نویس تولید شد.');
+  btn.disabled = false;
+  loadContentHistory();
+};
+
+$('save-content').onclick = () => {
+  if (!state.currentContentId) return;
+  Store.update('contents', state.currentContentId, { title: $('content-title').value, body: $('content-body').value });
+  toast('ذخیره شد.');
+  loadContentHistory();
+};
+$('copy-content').onclick = async () => {
+  try { await navigator.clipboard.writeText($('content-title').value + '\n\n' + $('content-body').value); toast('کپی شد.'); }
+  catch { toast('کپی ممکن نشد.', 'error'); }
+};
+$('content-to-pdf').onclick = () => {
+  if (state.currentContentProjectId) printCatalog(state.currentContentProjectId, state.currentContentId);
+};
+$('load-content-history').onclick = loadContentHistory;
+
+function loadContentHistory() {
+  const pid = Number($('studio-project').value);
+  if (!pid) { $('content-history').innerHTML = `<div class="empty"><b>پرونده انتخاب نشده</b></div>`; return; }
+  const contents = Store.all('contents').filter(c => c.project_id === pid);
+  if (!contents.length) { $('content-history').innerHTML = `<div class="empty"><b>محتوایی ذخیره نشده</b><p>اولین پیش‌نویس را تولید کن.</p></div>`; return; }
+  $('content-history').innerHTML = `<div class="table-wrap"><table class="table"><thead><tr><th>عنوان</th><th>قالب</th><th>زبان</th><th>ارائه‌دهنده</th><th>زمان</th><th></th></tr></thead><tbody>
+    ${contents.map(c => `<tr><td><b>${esc(c.title)}</b></td><td>${esc(c.style)}</td><td>${esc(c.language.toUpperCase())}</td><td>${esc(c.provider)}</td><td>${fmtDate(c.created_at)}</td>
+    <td><div class="actions" style="margin:0"><button class="btn btn-soft btn-sm" data-load-content="${c.id}">باز کردن</button><button class="btn btn-danger btn-sm" data-delete-content="${c.id}">حذف</button></div></td></tr>`).join('')}</tbody></table></div>`;
+}
+document.addEventListener('click', e => {
+  const l = e.target.closest('[data-load-content]');
+  if (l) {
+    const c = Store.all('contents').find(x => x.id === Number(l.dataset.loadContent));
+    if (c) {
+      state.currentContentId = c.id; state.currentContentProjectId = c.project_id;
+      $('content-title').value = c.title; $('content-body').value = c.body;
+      $('content-meta').textContent = `شناسه: ${c.id}`;
+      $('save-content').disabled = false; $('copy-content').disabled = false; $('content-to-pdf').disabled = false;
+    }
+  }
+  const d = e.target.closest('[data-delete-content]');
+  if (d) {
+    if (!confirm('این پیش‌نویس حذف شود؟')) return;
+    Store.remove('contents', Number(d.dataset.deleteContent));
+    toast('حذف شد.'); loadContentHistory();
+  }
+});
+
+/* ============ PRINT PDF ============ */
+function printCatalog(pid, contentId) {
+  const project = Store.all('projects').find(p => p.id === pid);
+  if (!project) return;
+  const facts = Store.all('facts').filter(f => f.project_id === pid && f.status === 'approved');
+  if (!facts.length) { toast('مشخصه تأییدشده‌ای نیست.', 'error'); return; }
+  const docs = Store.all('documents');
+  const content = contentId ? Store.all('contents').find(c => c.id === contentId) : null;
+
+  const html = `<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>${esc(project.name)}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>@page{size:A4;margin:20mm 15mm}body{font-family:'Vazirmatn',sans-serif;color:#142238;line-height:1.8;font-size:12px}
+  .cover{padding:60mm 0 30mm;text-align:center;page-break-after:always}
+  .cover .brand{font-size:14px;color:#0d6f68;letter-spacing:5px}
+  .cover h1{font-size:32px;margin:20mm 0 8mm;color:#0b1324}
+  .cover .meta{color:#556;font-size:13px;margin-top:6mm}
+  h2{color:#0d6f68;font-size:18px;border-bottom:2px solid #0d6f68;padding-bottom:3mm;margin-top:8mm}
+  table{width:100%;border-collapse:collapse;margin:4mm 0}
+  th,td{border:1px solid #dde3ea;padding:2.5mm 3mm;text-align:right;font-size:11px}
+  th{background:#f0f6f5;color:#0d6f68}
+  .evidence{background:#f7f9fc;border-right:3px solid #0d6f68;padding:2mm 3mm;font-size:10px;color:#556;margin:2mm 0}
+  .meta-note{color:#778;font-size:10px}
+  .content{white-space:pre-wrap;line-height:2;padding:4mm;background:#fafcfc;border-radius:4mm;margin:4mm 0}
+  </style></head><body>
+  <div class="cover"><div class="brand">صنعت‌نگار · SANATNEGAR</div><h1>${esc(project.name)}</h1>
+  <div class="meta">${project.manufacturer ? 'تولیدکننده: ' + esc(project.manufacturer) + '<br>' : ''}${project.product_code ? 'کد فنی: ' + esc(project.product_code) + '<br>' : ''}حوزه: ${esc(project.sector)}</div>
+  <div class="meta" style="margin-top:15mm">تاریخ: ${new Date().toLocaleDateString('fa-IR')}</div></div>
+  ${content ? `<h2>معرفی محصول</h2><div class="content">${esc(content.body)}</div>` : ''}
+  <h2>مشخصات فنی تأییدشده (${facts.length} مورد)</h2>
+  <table><thead><tr><th>ویژگی</th><th>مقدار</th><th>واحد</th><th>منبع</th></tr></thead><tbody>
+  ${facts.map(f => `<tr><td>${esc(f.name)}</td><td>${esc(f.value)}</td><td>${esc(f.unit || '—')}</td><td class="meta-note">${esc(docs.find(d => d.id === f.document_id)?.filename || '—')}</td></tr>`).join('')}
+  </tbody></table>
+  <h2>شواهد فنی</h2>
+  ${facts.map(f => `<div class="evidence"><b>${esc(f.name)}:</b> ${esc(f.evidence)}</div>`).join('')}
+  </body></html>`;
+
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+  setTimeout(() => w.print(), 700);
+
+  Store.add('catalogs', { project_id: pid, filename: project.name.replace(/ /g, '_') + '.pdf', fact_count: facts.length, content_id: contentId });
+  logActivity('ساخت کاتالوگ', project.name, pid);
+  toast('پنجره چاپ باز شد. Save as PDF کنید.');
+}
+
+/* ============ CATALOGS ============ */
+function loadCatalogs() {
+  const projects = Store.all('projects');
+  const sel = $('catalog-project-filter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">همه پروژه‌ها</option>' + projects.map(p => `<option value="${p.id}">${esc(p.name)}</option>`).join('');
+  if (projects.some(p => String(p.id) === cur)) sel.value = cur;
+  let catalogs = Store.all('catalogs');
+  if (sel.value) catalogs = catalogs.filter(c => c.project_id === Number(sel.value));
+  $('catalog-list').innerHTML = catalogs.length ? `<div class="table-wrap"><table class="table"><thead><tr><th>نام</th><th>پروژه</th><th>مشخصات</th><th>تاریخ</th><th>عملیات</th></tr></thead><tbody>
+    ${catalogs.map(c => `<tr><td><b>${esc(c.filename)}</b></td><td>${esc(projects.find(p => p.id === c.project_id)?.name || '—')}</td><td>${c.fact_count}</td><td>${fmtDate(c.created_at)}</td>
+    <td><button class="btn btn-soft btn-sm" data-regen-catalog="${c.project_id}">ساخت مجدد</button></td></tr>`).join('')}</tbody></table></div>`
+    : `<div class="empty"><b>کاتالوگی نیست</b><p>از استودیو یا فضای کار، PDF بساز.</p></div>`;
+}
+$('catalog-project-filter').onchange = loadCatalogs;
+$('catalog-refresh').onclick = loadCatalogs;
+document.addEventListener('click', e => {
+  const r = e.target.closest('[data-regen-catalog]');
+  if (r) printCatalog(Number(r.dataset.regenCatalog), null);
+});
+
+/* ============ TEMPLATES ============ */
+function loadTemplates() {
+  const templates = Store.all('templates');
+  $('templates-grid').innerHTML = templates.map(t => `
+    <article class="card card-pad"><div style="width:37px;height:37px;border-radius:12px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:17px;margin-bottom:8px">▧</div>
+    <h3 style="font-size:13px;margin:0 0 4px">${esc(t.name)}</h3>
+    <p style="font-size:11px;color:var(--muted);margin:0 0 12px;min-height:36px">${esc(t.description)}</p>
+    <button class="btn btn-soft btn-block" data-use-template="${t.id}">استفاده</button></article>
+  `).join('');
+}
+document.addEventListener('click', e => {
+  const u = e.target.closest('[data-use-template]');
+  if (u) { setRoute('ai-content'); setTimeout(() => { $('studio-template').value = u.dataset.useTemplate; }, 100); }
+});
+
+/* ============ SETTINGS ============ */
+function loadSettings() {
+  const cfg = AI.getConfig();
+  $('ai-provider').value = cfg.provider || 'deepseek';
+  $('ai-model').value = cfg.model || '';
+  $('ai-key').value = cfg.apiKey || '';
+  $('ai-status').textContent = cfg.apiKey ? 'کلید ذخیره شده است.' : 'کلیدی تنظیم نشده — تولید محتوا از قالب پایه استفاده می‌کند.';
+}
+$('save-ai-config').onclick = () => {
+  AI.saveConfig({ provider: $('ai-provider').value, model: $('ai-model').value.trim(), apiKey: $('ai-key').value.trim() });
+  toast('تنظیمات ذخیره شد.');
+  loadSettings();
+};
+$('test-ai-config').onclick = async () => {
+  AI.saveConfig({ provider: $('ai-provider').value, model: $('ai-model').value.trim(), apiKey: $('ai-key').value.trim() });
+  $('ai-status').textContent = 'در حال تست…';
+  try { const r = await AI.chat('You are a test.', 'Say OK briefly.'); $('ai-status').textContent = '✓ موفق: ' + r.slice(0, 50); toast('اتصال موفق.', 'success'); }
+  catch (err) { $('ai-status').textContent = '✗ ' + err.message; toast('اتصال ناموفق.', 'error'); }
+};
+$('clear-ai-config').onclick = () => {
+  if (!confirm('کلید API حذف شود؟')) return;
+  AI.saveConfig({ provider: 'deepseek', model: '', apiKey: '' });
+  toast('حذف شد.'); loadSettings();
+};
+
+/* ============ ACTIVITY ============ */
+function loadActivity() {
+  const q = ($('activity-search').value || '').toLowerCase();
+  let acts = Store.all('activity');
+  if (q) acts = acts.filter(a => (a.action + ' ' + a.details).toLowerCase().includes(q));
+  $('activity-list').innerHTML = acts.length ? acts.map(a => `<div class="check-row"><div class="check">◷</div><div><b class="small">${esc(a.action)}</b><div class="tiny muted">${esc(a.details || '')} · ${fmtDate(a.created_at)}</div></div></div>`).join('') : `<div class="empty"><b>فعالیتی نیست</b></div>`;
+}
+$('activity-search').oninput = loadActivity;
+$('activity-refresh').onclick = loadActivity;
+
+/* ============ GLOBAL SEARCH ============ */
+$('global-search').onkeydown = e => {
+  if (e.key !== 'Enter') return;
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) return;
+  const projects = Store.all('projects').filter(p => (p.name + ' ' + (p.manufacturer||'') + ' ' + p.sector).toLowerCase().includes(q));
+  const docs = Store.all('documents').filter(d => d.filename.toLowerCase().includes(q));
+  const facts = Store.all('facts').filter(f => (f.name + ' ' + f.value).toLowerCase().includes(q)).slice(0, 20);
+  openModal('نتایج: ' + q, `
+    <h3 style="font-size:13px;margin:0 0 8px">پروژه‌ها (${projects.length})</h3>
+    ${projects.map(p => `<div class="check-row"><div><b>${esc(p.name)}</b><div class="tiny muted">${esc(p.sector)}</div></div><button class="btn btn-soft btn-sm" data-open-project="${p.id}">باز کردن</button></div>`).join('') || '<p class="tiny muted">—</p>'}
+    <h3 style="font-size:13px;margin:14px 0 8px">اسناد (${docs.length})</h3>
+    ${docs.map(d => `<div class="check-row"><div><b>${esc(d.filename)}</b></div></div>`).join('') || '<p class="tiny muted">—</p>'}
+    <h3 style="font-size:13px;margin:14px 0 8px">مشخصات (${facts.length})</h3>
+    ${facts.map(f => `<div class="check-row"><b>${esc(f.name)}: ${esc(f.value)} ${esc(f.unit)}</b></div>`).join('') || '<p class="tiny muted">—</p>'}
+  `);
+};
+
+/* ============ INIT ============ */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open-project]');
+  if (o) { $('modal-backdrop').classList.remove('open'); state.projectId = Number(o.dataset.openProject); localStorage.setItem('sn_current_project', String(state.projectId)); setRoute('workspace'); }
+});
+
+$('hamburger').onclick = () => $('sidebar').classList.toggle('open');
+
+setRoute('overview');
+console.log('✓ صنعت‌نگار (نسخه مرورگری) راه‌اندازی شد. داده‌ها در localStorage ذخیره می‌شوند.');
+</script>
+</body>
+</html>
