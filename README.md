@@ -319,4 +319,12 @@ By combining AI with source-based verification, the platform helps reduce manual
 *Industrial Intelligence. Verified Evidence. AI-Driven Content.*
 
 </div>
+<div align="center">
 
+### 👨‍💻 Designed & Developed By : Narges Gordpur
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge)](https://Narges-gordpur.github.io/Sanatnegar/)
+
+</div>
